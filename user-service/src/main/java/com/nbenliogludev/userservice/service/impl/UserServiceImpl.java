@@ -27,10 +27,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponse createUser(UserCreateRequest request) {
         // Check if user already exists
-        Optional<User> userOptional = userRepository.findByEmail(request.getEmail());
+        Optional<User> userOptional = userRepository.findByEmail(request.email());
 
         if (userOptional.isPresent()) {
-            throw new UserEmailAlreadyExistException("User already exists with email: " + request.getEmail());
+            throw new UserEmailAlreadyExistException("User already exists with email: " + request.email());
         }
 
         User user = userMapper.mapUserCreateRequestToUser(request);
@@ -71,9 +71,9 @@ public class UserServiceImpl implements UserService {
         }
 
         User user = userOptional.get();
-        user.setName(request.getName());
-        user.setSurname(request.getSurname());
-        user.setEmail(request.getEmail());
+        user.setName(request.name());
+        user.setSurname(request.surname());
+        user.setEmail(request.email());
         userRepository.save(user);
 
         return userMapper.mapToUserResponse(user);
