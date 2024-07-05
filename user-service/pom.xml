@@ -66,6 +66,13 @@
 			<version>${org.mapstruct.version}</version>
 		</dependency>
 
+		<!-- Feign Client -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+
 		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
