@@ -4,11 +4,11 @@ import AuthInput from "@/components/input/authInput";
 function LoginPage() {
   return (
     <div className="flex min-h-screen items-center justify-center px-6 py-12 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm mt-[-100px] relative"> 
+        <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Sign in to your account
         </h2>
-        <form action="#" method="POST" className="mt-10 space-y-6">
+        <form action="#" method="POST" className="mt-8 space-y-6">
           <div>
             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
               Email address
@@ -46,7 +46,7 @@ function LoginPage() {
             </div>
           </div>
 
-          <div>
+          <div className="mt-6">
             <AuthButton type="submit" className="my-custom-class">
               Sign in
             </AuthButton>
