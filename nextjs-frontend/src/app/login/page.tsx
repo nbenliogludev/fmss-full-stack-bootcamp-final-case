@@ -1,7 +1,7 @@
 import AuthButton from "@/components/button/authButton";
 import AuthInput from "@/components/input/authInput";
 
-export default function LoginPage() {
+function LoginPage() {
   return (
     <div className="flex min-h-screen items-center justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -56,3 +56,5 @@ export default function LoginPage() {
     </div>
   )
 }
+
+export default LoginPage;
