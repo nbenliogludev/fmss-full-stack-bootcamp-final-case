@@ -1,6 +1,5 @@
 package com.nbenliogludev.userservice.service.impl;
 
-import com.nbenliogludev.userservice.client.UserClient;
 import com.nbenliogludev.userservice.dto.request.UserCreateRequest;
 import com.nbenliogludev.userservice.dto.response.UserResponse;
 import com.nbenliogludev.userservice.entity.User;
@@ -24,7 +23,6 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
-    private final UserClient userClient;
 
     @Override
     public UserResponse createUser(UserCreateRequest request) {
