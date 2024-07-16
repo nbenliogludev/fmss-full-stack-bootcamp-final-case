@@ -4,7 +4,7 @@ const products = [
     name: 'Earthen Bottle',
     href: '#',
     price: '$48',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
+    imageSrc: 'https://image.cnbcfm.com/api/v1/image/103500764-GettyImages-147205632-2.jpg?v=1691157601&w=929&h=523&vtcrop=y',
     imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
   },
   {
@@ -12,7 +12,7 @@ const products = [
     name: 'Nomad Tumbler',
     href: '#',
     price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
+    imageSrc: 'https://learn.roofstock.com/hs-fs/hubfs/iStock-157382018.jpg?width=2121&name=iStock-157382018.jpg',
     imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
   },
   {
@@ -20,7 +20,7 @@ const products = [
     name: 'Focus Paper Refill',
     href: '#',
     price: '$89',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
+    imageSrc: 'https://www.build-review.com/wp-content/uploads/2020/07/luxury-real-estate.jpg',
     imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
   },
   {
@@ -28,7 +28,7 @@ const products = [
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+    imageSrc: 'https://colesclassroom.com/wp-content/uploads/2018/12/pexels-photo-106399.jpeg',
     imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   // More products...
