@@ -23,6 +23,7 @@ import {
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -36,8 +37,12 @@ const callsToAction = [
   { name: 'Contact sales', href: '#', icon: PhoneIcon },
 ]
 
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const { data: session } = useSession();
+  console.log({ session });
 
   return (
     <header className="bg-white">
@@ -113,11 +118,25 @@ export default function Header() {
             Company
           </a>
         </PopoverGroup>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             <Link href="/login">Log in</Link>
             <span aria-hidden="true">&rarr;</span>
           </a>
+        </div> */}
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          {session?.user ? (
+            <button className="text-sm font-semibold leading-6 text-gray-900" onClick={() => signIn()}>
+              <Link href="/login">Log in</Link>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          ) : (
+            <button className="text-sm font-semibold leading-6 text-gray-900" onClick={() => signOut()}>
+              <Link href="/login">Log out</Link>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          )}
         </div>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -181,14 +200,30 @@ export default function Header() {
                   Company
                 </a>
               </div>
-              <div className="py-6">
+              {/* <div className="py-6">
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
                 </a>
+              </div> */}
+
+              <div className="ml-auto flex gap-2">
+                {session?.user ? (
+                  <>
+                    <p className="text-sky-600"> {session.user.name}</p>
+                    <button className="text-red-500" onClick={() => signOut()}>
+                      Sign Out
+                    </button>
+                  </>
+                ) : (
+                  <button className="text-green-600" onClick={() => signIn()}>
+                    Sign In
+                  </button>
+                )}
               </div>
+
             </div>
           </div>
         </DialogPanel>

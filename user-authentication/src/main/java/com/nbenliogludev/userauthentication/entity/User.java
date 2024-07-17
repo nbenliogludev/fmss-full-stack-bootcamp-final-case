@@ -1,6 +1,5 @@
 package com.nbenliogludev.userauthentication.entity;
 
-import com.nbenliogludev.userauthentication.entity.Token;
 import jakarta.persistence.*;
 
 import java.util.Collection;
