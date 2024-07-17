@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { use } from "react";
 export default NextAuth({
   providers: [
     CredentialsProvider({
@@ -27,7 +28,7 @@ export default NextAuth({
           }),
         });
         const user = await res.json();
-
+        console.log(user);
         if (user) {
           // Any object returned will be saved in `user` property of the JWT
           return user;
