@@ -12,6 +12,11 @@ spring:
           uri: lb://AUTHENTICATION-SERVICE
           predicates:
             - Path=/api/v1/auth/**
+        - id: ad-service
+          uri: lb://AD-SERVICE
+          predicates:
+            - Path=/api/v1/ads/**
+
 server:
   port: 8080
 
