@@ -34,8 +34,8 @@ public class AdController {
             @ApiResponse(responseCode = "200", description = "List of ads retrieved successfully", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdResponse.class)))
     })
     @GetMapping
-    public ResponseEntity<RestResponse<List<AdResponse>>> getAllUsers() {
-
+    public ResponseEntity<RestResponse<List<AdResponse>>> getAllAds() {
+        System.out.println("Get All Ads");
         List<AdResponse> users = adService.getAllAds();
         return ResponseEntity.ok(RestResponse.of(users));
     }
@@ -47,7 +47,6 @@ public class AdController {
     })
     @GetMapping("/{id}")
     public ResponseEntity<RestResponse<AdResponse>> getUserById(@PathVariable Long id) {
-
         AdResponse user = adService.getAdById(id);
         return ResponseEntity.ok(RestResponse.of(user));
     }
@@ -77,7 +76,7 @@ public class AdController {
         return ResponseEntity.ok(RestResponse.of(updatedAd));
     }
 
-    @Operation(summary = "Delete AD", description = "Deletes a ad by its ID")
+    @Operation(summary = "Delete Ad", description = "Deletes a ad by its ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Ad deleted successfully"),
             @ApiResponse(responseCode = "404", description = "Ad not found")

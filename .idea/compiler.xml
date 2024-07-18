@@ -9,14 +9,19 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
         <module name="user-authentication" />
+        <module name="ad-package-service" />
         <module name="user-service" />
         <module name="ad-service" />
         <module name="eureka-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="adpackage-service" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ad-package-service" options="-parameters" />
       <module name="ad-service" options="-parameters" />
       <module name="api-gateway" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
