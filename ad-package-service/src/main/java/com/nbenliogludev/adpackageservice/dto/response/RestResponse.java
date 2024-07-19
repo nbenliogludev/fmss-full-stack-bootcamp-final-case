@@ -1,4 +1,4 @@
-package com.nbenliogludev.adservice.dto.response;
+package com.nbenliogludev.adpackageservice.dto.response;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
