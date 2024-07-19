@@ -16,6 +16,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author nbenliogludev
  */
@@ -26,6 +28,16 @@ import org.springframework.web.bind.annotation.*;
 public class AdPackageController {
 
     private final AdPackageService adPackageService;
+
+    @Operation(summary = "Get All Ad Packages", description = "Retrieves a list of all ad packages")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "List of ads retrieved successfully", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdPackageResponse.class)))
+    })
+    @GetMapping
+    public ResponseEntity<RestResponse<List<AdPackageResponse>>> getAllAds() {
+        List<AdPackageResponse> users = adPackageService.getAllAdPackages();
+        return ResponseEntity.ok(RestResponse.of(users));
+    }
 
     @Operation(summary = "Create Ad Package", description = "Creates a new ad package")
     @ApiResponses(value = {

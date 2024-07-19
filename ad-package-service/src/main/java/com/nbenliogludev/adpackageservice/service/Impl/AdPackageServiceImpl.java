@@ -9,6 +9,8 @@ import com.nbenliogludev.adpackageservice.repository.AdPackageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 /**
  * @author nbenliogludev
@@ -27,6 +29,16 @@ public class AdPackageServiceImpl implements AdPackageService {
         adPackage = adPackageRepository.save(adPackage);
 
         return adPackageMapper.mapToAdPackageResponse(adPackage);
+    }
+
+    @Override
+    public List<AdPackageResponse> getAllAdPackages() {
+
+        List<AdPackage> users = adPackageRepository.findAll();
+
+        return users.stream()
+                .map(adPackageMapper::mapToAdPackageResponse)
+                .toList();
     }
 
 }
