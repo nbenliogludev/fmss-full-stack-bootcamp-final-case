@@ -14,11 +14,11 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface AdPackageMapper {
 
-    @Mapping(source = "user_id", target = "user_id")
-    @Mapping(source = "number_of_ads", target = "number_of_ads")
-    @Mapping(source = "validity_period", target = "validity_period")
-    @Mapping(source = "expiration_date", target = "expiration_date")
-    @Mapping(source = "status", target = "status")
+//    @Mapping(source = "userId", target = "user_id")
+//    @Mapping(source = "numberOfAds", target = "number_of_ads")
+//    @Mapping(source = "validityPeriod", target = "validity_period")
+//    @Mapping(source = "expirationDate", target = "expiration_date")
+//    @Mapping(source = "status", target = "status")
     AdPackage mapAdPackageCreateRequestToAdPackage(AdPackageCreateRequest request);
 
     AdPackageResponse mapToAdPackageResponse(AdPackage adPackage);
