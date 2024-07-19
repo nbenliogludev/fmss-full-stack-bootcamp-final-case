@@ -21,7 +21,7 @@ public record AdPackageCreateRequest (
         @NotBlank(message = "Number of ads is required.")
         int numberOfAds,
 
-        @NotNull(message = "Validy Period is required.")
+        @NotNull(message = "Valid Period is required.")
         int validityPeriod,
 
         @NotNull(message = "Expiration date is required.")
