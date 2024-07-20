@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="api-gateway" />
         <module name="user-authentication" />
         <module name="ad-package-service" />
+        <module name="api-gateway" />
+        <module name="log-aggregation-service" />
         <module name="user-service" />
         <module name="ad-service" />
         <module name="eureka-server" />
@@ -25,6 +26,7 @@
       <module name="ad-service" options="-parameters" />
       <module name="api-gateway" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="log-aggregation-service" options="-parameters" />
       <module name="user-authentication" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>

@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/ad-service/pom.xml" />
         <option value="$PROJECT_DIR$/adpackage-service/pom.xml" />
         <option value="$PROJECT_DIR$/ad-package-service/pom.xml" />
+        <option value="$PROJECT_DIR$/log-aggregation-service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

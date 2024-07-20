@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: log_aggregation_service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/log_aggregation_service
+    username: postgres
+    password:
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+server:
+  port: 0
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
