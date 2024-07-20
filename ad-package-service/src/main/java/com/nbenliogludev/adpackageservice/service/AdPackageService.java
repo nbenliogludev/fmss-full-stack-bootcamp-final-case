@@ -8,4 +8,5 @@ import java.util.List;
 public interface AdPackageService {
     AdPackageResponse createAdPackage(AdPackageCreateRequest request);
     List<AdPackageResponse> getAllAdPackages();
+    AdPackageResponse getAdPackageById(Long id);
 }

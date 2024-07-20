@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -34,11 +35,19 @@ public class AdPackageServiceImpl implements AdPackageService {
     @Override
     public List<AdPackageResponse> getAllAdPackages() {
 
-        List<AdPackage> users = adPackageRepository.findAll();
+        List<AdPackage> adPackages = adPackageRepository.findAll();
 
-        return users.stream()
+        return adPackages.stream()
                 .map(adPackageMapper::mapToAdPackageResponse)
                 .toList();
+    }
+
+    @Override
+    public AdPackageResponse getAdPackageById(Long id) {
+
+        Optional<AdPackage> adPackageOptional = adPackageRepository.findById(id);
+
+        return adPackageMapper.mapToAdPackageResponse(adPackageOptional.get());
     }
 
 }

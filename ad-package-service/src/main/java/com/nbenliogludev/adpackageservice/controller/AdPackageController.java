@@ -51,4 +51,15 @@ public class AdPackageController {
         return ResponseEntity.status(HttpStatus.CREATED).body(RestResponse.of(createdAd));
     }
 
+    @Operation(summary = "Get ad package by Id", description = "Retrieves a ad package by its ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Ad package retrieved successfully", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdPackageResponse.class))),
+            @ApiResponse(responseCode = "404", description = "Ad package not found")
+    })
+    @GetMapping("/{id}")
+    public ResponseEntity<RestResponse<AdPackageResponse>> getAdPackageById(@PathVariable Long id) {
+        AdPackageResponse user = adPackageService.getAdPackageById(id);
+        return ResponseEntity.ok(RestResponse.of(user));
+    }
+
 }

@@ -3,7 +3,6 @@ package com.nbenliogludev.adpackageservice.dto.request;
 import com.nbenliogludev.adpackageservice.enums.AdPackageStatus;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 
@@ -15,10 +14,10 @@ import java.time.LocalDateTime;
 @Builder
 public record AdPackageCreateRequest (
 
-        @NotBlank(message = "User Id is required.")
+        @NotNull(message = "User Id is required.")
         String userId,
 
-        @NotBlank(message = "Number of ads is required.")
+        @NotNull(message = "Number of ads is required.")
         int numberOfAds,
 
         @NotNull(message = "Valid Period is required.")
