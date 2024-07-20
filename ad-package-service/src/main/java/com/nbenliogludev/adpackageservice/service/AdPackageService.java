@@ -10,4 +10,5 @@ public interface AdPackageService {
     List<AdPackageResponse> getAllAdPackages();
     AdPackageResponse getAdPackageById(Long id);
     AdPackageResponse updateAdPackage(Long id, AdPackageCreateRequest request);
+    void deleteAdPackage(Long id);
 }

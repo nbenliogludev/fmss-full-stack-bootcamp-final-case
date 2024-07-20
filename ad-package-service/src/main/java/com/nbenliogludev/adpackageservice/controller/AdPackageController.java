@@ -75,4 +75,16 @@ public class AdPackageController {
         return ResponseEntity.ok(RestResponse.of(updatedAdPackage));
     }
 
+    @Operation(summary = "Delete Ad Package", description = "Deletes a ad package by its ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Ad package deleted successfully"),
+            @ApiResponse(responseCode = "404", description = "Ad package not found")
+    })
+    @DeleteMapping("/{id}")
+    public ResponseEntity<RestResponse<Void>> deleteAdPackage(@PathVariable Long id) {
+
+        adPackageService.deleteAdPackage(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(RestResponse.empty());
+    }
+
 }

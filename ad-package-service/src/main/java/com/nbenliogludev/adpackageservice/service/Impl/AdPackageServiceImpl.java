@@ -65,5 +65,11 @@ public class AdPackageServiceImpl implements AdPackageService {
         return adPackageMapper.mapToAdPackageResponse(adPackage);
     }
 
+    @Override
+    public void deleteAdPackage(Long id) {
+
+        adPackageRepository.deleteById(id);
+    }
+
 }
 
