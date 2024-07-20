@@ -6,6 +6,7 @@ import com.nbenliogludev.adservice.dto.request.AdCreateRequest;
 import com.nbenliogludev.adservice.dto.response.AdResponse;
 import com.nbenliogludev.adservice.entity.Ad;
 import com.nbenliogludev.adservice.repository.AdRepository;
+import com.nbenliogludev.adservice.util.AppLogger;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class AdServiceImpl implements AdService {
 
     private final AdRepository adRepository;
     private final AdMapper adMapper;
+    private final AppLogger appLogger;
 
     @Override
     public AdResponse createAd(AdCreateRequest request) {
@@ -28,6 +30,7 @@ public class AdServiceImpl implements AdService {
         Ad ad = adMapper.mapAdCreateRequestToAd(request);
         ad = adRepository.save(ad);
 
+        appLogger.logInfo("Ad created", "Ad created with id: " + ad.getId());
         return adMapper.mapToAdResponse(ad);
     }
 

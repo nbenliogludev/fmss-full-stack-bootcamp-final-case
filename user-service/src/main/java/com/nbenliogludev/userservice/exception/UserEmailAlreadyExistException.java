@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * @author selimsahindev
+ * @author nbenliogludev
  */
 @ResponseStatus(HttpStatus.CONFLICT)
 public class UserEmailAlreadyExistException extends RuntimeException {

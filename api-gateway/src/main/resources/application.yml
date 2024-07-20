@@ -20,10 +20,6 @@ spring:
           uri: lb://AD-PACKAGE-SERVICE
           predicates:
             - Path=/api/v1/adPackages/**
-        - id: log-aggregation-service
-          uri: lb://LOG-AGGREGATION-SERVICE
-          predicates:
-            - Path=/api/v1/logAggregation/**
 
 server:
   port: 8080

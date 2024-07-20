@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * @author selimsahindev
+ * @author nbenliogludev
  */
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class AdNotFoundException extends RuntimeException {
