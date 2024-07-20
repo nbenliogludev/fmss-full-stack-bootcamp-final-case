@@ -50,5 +50,20 @@ public class AdPackageServiceImpl implements AdPackageService {
         return adPackageMapper.mapToAdPackageResponse(adPackageOptional.get());
     }
 
+    @Override
+    public AdPackageResponse updateAdPackage(Long id, AdPackageCreateRequest request) {
+
+        Optional<AdPackage> adOptional = adPackageRepository.findById(id);
+
+        AdPackage adPackage = adOptional.get();
+        adPackage.setNumberOfAds(request.numberOfAds());
+        adPackage.setValidityPeriod(request.validityPeriod());
+        adPackage.setExpirationDate(request.expirationDate());
+        adPackage.setStatus(request.status());
+        adPackageRepository.save(adPackage);
+
+        return adPackageMapper.mapToAdPackageResponse(adPackage);
+    }
+
 }
 

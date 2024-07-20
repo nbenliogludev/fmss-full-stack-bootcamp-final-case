@@ -9,4 +9,5 @@ public interface AdPackageService {
     AdPackageResponse createAdPackage(AdPackageCreateRequest request);
     List<AdPackageResponse> getAllAdPackages();
     AdPackageResponse getAdPackageById(Long id);
+    AdPackageResponse updateAdPackage(Long id, AdPackageCreateRequest request);
 }

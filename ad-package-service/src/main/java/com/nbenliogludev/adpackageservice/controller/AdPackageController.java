@@ -62,4 +62,17 @@ public class AdPackageController {
         return ResponseEntity.ok(RestResponse.of(user));
     }
 
+    @Operation(summary = "Update Ad Package", description = "Updates an existing ad package")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Ad Package updated successfully", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdPackageResponse.class))),
+            @ApiResponse(responseCode = "400", description = "Invalid request body"),
+            @ApiResponse(responseCode = "404", description = "Ad Package not found")
+    })
+    @PutMapping("/{id}")
+    public ResponseEntity<RestResponse<AdPackageResponse>> updateAdPackage(@PathVariable Long id, @RequestBody @Valid AdPackageCreateRequest request) {
+
+        AdPackageResponse updatedAdPackage = adPackageService.updateAdPackage(id, request);
+        return ResponseEntity.ok(RestResponse.of(updatedAdPackage));
+    }
+
 }
