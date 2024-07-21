@@ -62,23 +62,6 @@ public class GeneralControllerAdvice extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(restResponse);
     }
 
-    @ExceptionHandler(UserReviewNotFoundException.class)
-    public ResponseEntity<Object> handleUserReviewNotFoundException(UserReviewNotFoundException exception,
-                                                                    WebRequest request) {
-
-
-        RestResponse<GeneralErrorMessage> restResponse = getGeneralErrorMessageRestResponse(exception, request);
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(restResponse);
-    }
-
-    @ExceptionHandler(RestaurantNotFoundException.class)
-    public ResponseEntity<Object> handleRestaurantNotFoundException(RestaurantNotFoundException exception,
-                                                                    WebRequest request) {
-
-        RestResponse<GeneralErrorMessage> restResponse = getGeneralErrorMessageRestResponse(exception, request);
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(restResponse);
-    }
-
     @Override
     public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException exception,
                                                                HttpHeaders headers,
