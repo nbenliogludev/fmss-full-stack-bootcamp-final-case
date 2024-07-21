@@ -4,14 +4,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * @author nbenliogludev
+ * Author: nbenliogludev
  */
 @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 public class LogProducerException extends RuntimeException {
 
-    public static final String ERROR_MESSAGE = "An error occurred while producing the log";
+    public LogProducerException(String message) {
+        super(message);
+    }
 
-    public LogProducerException() {
-        super(ERROR_MESSAGE);
+    public LogProducerException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

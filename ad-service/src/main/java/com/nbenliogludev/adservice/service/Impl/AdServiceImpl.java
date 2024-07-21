@@ -1,5 +1,6 @@
 package com.nbenliogludev.adservice.service.Impl;
 
+import com.nbenliogludev.adservice.exception.AdNotFoundException;
 import com.nbenliogludev.adservice.mapper.AdMapper;
 import com.nbenliogludev.adservice.service.AdService;
 import com.nbenliogludev.adservice.dto.request.AdCreateRequest;
