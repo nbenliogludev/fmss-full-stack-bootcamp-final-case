@@ -39,7 +39,7 @@ public class GeneralControllerAdvice extends ResponseEntityExceptionHandler {
 
 
     @ExceptionHandler(AdNotFoundException.class)
-    public ResponseEntity<Object> handleRestaurantNotFoundException(AdNotFoundException exception,
+    public ResponseEntity<Object> handleAdNotFoundException(AdNotFoundException exception,
                                                                     WebRequest request) {
 
         RestResponse<GeneralErrorMessage> restResponse = getGeneralErrorMessageRestResponse(exception, request);
