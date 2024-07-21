@@ -59,8 +59,6 @@ public class UserController {
     })
     @PostMapping
     public ResponseEntity<RestResponse<UserResponse>> createUser(@RequestBody @Valid UserCreateRequest request) {
-        System.out.println("----------- User Service -----------");
-        System.out.println(request);
         UserResponse createdUser = userService.createUser(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(RestResponse.of(createdUser));
     }

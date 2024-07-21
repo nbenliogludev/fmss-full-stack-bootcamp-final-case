@@ -29,7 +29,7 @@ public class AdPackageServiceImpl implements AdPackageService {
     @Override
     public AdPackageResponse createAdPackage(AdPackageCreateRequest request) {
         appLogger.logInfo("AdPackageService", "Creating ad package with request details: " + request.toString());
-
+        System.out.println(request.userId());
         Optional<AdPackage> existingAdPackageOptional = adPackageRepository.findByUserIdAndStatus(request.userId(), AdPackageStatus.ACTIVE);
 
         if (existingAdPackageOptional.isPresent()) {
