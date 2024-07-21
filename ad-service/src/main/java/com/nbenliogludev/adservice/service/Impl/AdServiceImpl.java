@@ -13,9 +13,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author nbenliogludev
- */
 @Service
 @RequiredArgsConstructor
 public class AdServiceImpl implements AdService {
@@ -26,52 +23,53 @@ public class AdServiceImpl implements AdService {
 
     @Override
     public AdResponse createAd(AdCreateRequest request) {
-
         Ad ad = adMapper.mapAdCreateRequestToAd(request);
         ad = adRepository.save(ad);
-
-        appLogger.logInfo("Ad created", "Ad created with id: " + ad.getId());
+        appLogger.logInfo("AdServiceImpl", "Ad created with id: " + ad.getId());
         return adMapper.mapToAdResponse(ad);
     }
 
     @Override
     public List<AdResponse> getAllAds() {
-
-        List<Ad> users = adRepository.findAll();
-
-        return users.stream()
+        appLogger.logInfo("AdServiceImpl", "Fetching all ads");
+        List<Ad> ads = adRepository.findAll();
+        appLogger.logInfo("AdServiceImpl", "Fetched " + ads.size() + " ads");
+        return ads.stream()
                 .map(adMapper::mapToAdResponse)
                 .toList();
     }
 
     @Override
     public AdResponse getAdById(Long id) {
-
-        Optional<Ad> userOptional = adRepository.findById(id);
-
-
-        return adMapper.mapToAdResponse(userOptional.get());
+        appLogger.logInfo("AdServiceImpl", "Fetching ad by id: " + id);
+        Optional<Ad> adOptional = adRepository.findById(id);
+        if (adOptional.isPresent()) {
+            appLogger.logInfo("AdServiceImpl", "Ad found with id: " + id);
+            return adMapper.mapToAdResponse(adOptional.get());
+        } else {
+            appLogger.logInfo("AdServiceImpl", "No ad found with id: " + id);
+            throw new AdNotFoundException("Ad not found with id: " + id);
+        }
     }
 
     @Override
     public AdResponse updateAd(Long id, AdCreateRequest request) {
+        appLogger.logInfo("AdServiceImpl", "Updating ad with id: " + id);
+        Ad ad = adRepository.findById(id)
+                .orElseThrow(() -> new AdNotFoundException("Ad not found with id: " + id));
 
-        Optional<Ad> adOptional = adRepository.findById(id);
-
-
-        Ad ad = adOptional.get();
         ad.setTitle(request.title());
         ad.setDescription(request.description());
         ad.setStatus(request.status());
         adRepository.save(ad);
-
+        appLogger.logInfo("AdServiceImpl", "Updated ad with id: " + id);
         return adMapper.mapToAdResponse(ad);
     }
 
     @Override
     public void deleteAd(Long id) {
-
+        appLogger.logInfo("AdServiceImpl", "Deleting ad with id: " + id);
         adRepository.deleteById(id);
+        appLogger.logInfo("AdServiceImpl", "Deleted ad with id: " + id);
     }
 }
-
