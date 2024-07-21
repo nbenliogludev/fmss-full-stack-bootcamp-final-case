@@ -82,7 +82,7 @@ AuthenticationService, JWT kullanarak kullanıcı kimlik doğrulama işlemlerini
 
 
 
-# İlan Servisi - [Ad Service]
+# İlan Servisi - [Ad Service](ad-service)
 
 İlan Servisi, kullanıcıların ilan oluşturma, güncelleme, silme ve listeleme işlemlerini yapabilmesini sağlar
 
@@ -98,7 +98,7 @@ AuthenticationService, JWT kullanarak kullanıcı kimlik doğrulama işlemlerini
 
 
 
-# Paket Servisi - [Ad Package Service]
+# Paket Servisi - [Ad Package Service](ad-package-service)
 
 Paket Servisi, kullanıcıların ilan yayınlama haklarını yönetir. Kullanıcılar, belirli bir süre ve sayıda ilan yayınlama hakkı sunan paketler satın alabilirler. Paket Servisi, kullanıcıların paketleri oluşturma, güncelleme, silme ve görüntüleme işlemlerini sağlar.
 
