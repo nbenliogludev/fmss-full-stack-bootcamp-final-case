@@ -1,6 +1,7 @@
 package com.nbenliogludev.adpackageservice.controller;
 
 import com.nbenliogludev.adpackageservice.dto.request.AdPackageCreateRequest;
+import com.nbenliogludev.adpackageservice.dto.request.AdPackageUpdateRequest;
 import com.nbenliogludev.adpackageservice.dto.response.AdPackageResponse;
 import com.nbenliogludev.adpackageservice.dto.response.RestResponse;
 import com.nbenliogludev.adpackageservice.service.AdPackageService;
@@ -62,6 +63,17 @@ public class AdPackageController {
         return ResponseEntity.ok(RestResponse.of(user));
     }
 
+    @Operation(summary = "Get ad package by user Id", description = "Retrieves a ad package by user Id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Ad package retrieved successfully", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdPackageResponse.class))),
+            @ApiResponse(responseCode = "404", description = "Ad package not found")
+    })
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<RestResponse<AdPackageResponse>> getAdPackageByUserId(@PathVariable Long userId) {
+        AdPackageResponse user = adPackageService.getAdPackageByUserId(userId);
+        return ResponseEntity.ok(RestResponse.of(user));
+    }
+
     @Operation(summary = "Update Ad Package", description = "Updates an existing ad package")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Ad Package updated successfully", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdPackageResponse.class))),
@@ -69,7 +81,7 @@ public class AdPackageController {
             @ApiResponse(responseCode = "404", description = "Ad Package not found")
     })
     @PutMapping("/{id}")
-    public ResponseEntity<RestResponse<AdPackageResponse>> updateAdPackage(@PathVariable Long id, @RequestBody @Valid AdPackageCreateRequest request) {
+    public ResponseEntity<RestResponse<AdPackageResponse>> updateAdPackage(@PathVariable Long id, @RequestBody @Valid AdPackageUpdateRequest request) {
 
         AdPackageResponse updatedAdPackage = adPackageService.updateAdPackage(id, request);
         return ResponseEntity.ok(RestResponse.of(updatedAdPackage));

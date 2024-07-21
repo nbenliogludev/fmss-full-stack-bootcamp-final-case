@@ -15,10 +15,6 @@ import org.mapstruct.ReportingPolicy;
 public interface AdPackageMapper {
 
     @Mapping(source = "userId", target = "userId")
-    @Mapping(source = "numberOfAds", target = "numberOfAds")
-    @Mapping(source = "validityPeriod", target = "validityPeriod")
-    @Mapping(source = "expirationDate", target = "expirationDate")
-    @Mapping(source = "status", target = "status")
     AdPackage mapAdPackageCreateRequestToAdPackage(AdPackageCreateRequest request);
 
     AdPackageResponse mapToAdPackageResponse(AdPackage adPackage);

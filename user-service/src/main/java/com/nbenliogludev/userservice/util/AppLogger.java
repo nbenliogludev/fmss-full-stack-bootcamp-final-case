@@ -1,8 +1,8 @@
 package com.nbenliogludev.userservice.util;
 
-import com.nbenliogludev.adservice.dto.ErrorLogDTO;
-import com.nbenliogludev.adservice.dto.InfoLogDTO;
-import com.nbenliogludev.adservice.rabbitmq.producer.LogProducer;
+import com.nbenliogludev.userservice.dto.ErrorLogDTO;
+import com.nbenliogludev.userservice.dto.InfoLogDTO;
+import com.nbenliogludev.userservice.rabbitmq.producer.LogProducer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

@@ -3,7 +3,6 @@ package com.nbenliogludev.userauthentication.client.user.service;
 
 import com.nbenliogludev.userauthentication.client.user.dto.response.UserResponse;
 import com.nbenliogludev.userauthentication.client.user.UserClient;
-import com.nbenliogludev.userauthentication.client.user.dto.response.UserResponse;
 import com.nbenliogludev.userauthentication.dto.request.UserCreateRequest;
 import com.nbenliogludev.userauthentication.dto.response.GenericResponse;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +19,6 @@ public class UserService {
 
     public GenericResponse<UserResponse> createUser(UserCreateRequest request) {
         GenericResponse<UserResponse> response = userClient.createUser(request);
-        System.out.println("-----------Response----------");
         if (response == null || !HttpStatus.OK.equals(response.getHttpStatus())) {
             log.error("Error Message: {}", response.getMessage());
         }

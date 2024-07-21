@@ -15,6 +15,8 @@ import java.math.BigDecimal;
  */
 @Builder
 public record AdCreateRequest (
+    @NotNull(message = "User Id is required.")
+    Long userId,
 
     @NotBlank(message = "Title is required.")
     @Length(max = 80, message = "Title can not be longer than 120 characters.")

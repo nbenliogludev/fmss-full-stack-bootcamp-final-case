@@ -1,4 +1,4 @@
-package com.nbenliogludev.userservice.producer;
+package com.nbenliogludev.userservice.rabbitmq.producer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nbenliogludev.userservice.dto.ErrorLogDTO;

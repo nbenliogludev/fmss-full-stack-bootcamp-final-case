@@ -22,10 +22,13 @@ public class AdPackage extends Auditable {
     private Long userId;
 
     @Column(name = "number_of_ads", nullable = false)
-    private int numberOfAds;
+    private int numberOfAds = 10;
+
+    @Column(name = "ads_used", nullable = false)
+    private int adsUsed = 0;
 
     @Column(name = "validity_period", nullable = false)
-    private int validityPeriod; // in days
+    private final int validityPeriod = 30;
 
     @Column(name = "expiration_date", nullable = false)
     private LocalDateTime expirationDate;
@@ -33,4 +36,10 @@ public class AdPackage extends Auditable {
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
     private AdPackageStatus status;
+
+    // Constructor to set default values
+    public AdPackage() {
+        this.expirationDate = LocalDateTime.now().plusDays(validityPeriod);
+        this.status = AdPackageStatus.ACTIVE;
+    }
 }
