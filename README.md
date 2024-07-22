@@ -10,7 +10,6 @@ Email: [nikbenlioglu@gmail.com](mailto:nikbenlioglu@gmail.com)
 
 ## Kısaca Bazı Özellikler
 
-- Unit ve Integration testleri yazıldı.
 - Her temel servisin kendi veritabanı bulunuyor.
 - RabbitMQ ile asenkron mesajlaşma sağlandı.
 - Loglar için MongoDB kullanılıyor.
@@ -36,7 +35,7 @@ Aşağıda projeye ait mikroservislerin listesi bulunmaktadır.<br>
 
 ## Proje Şeması
 
-![Proje Diyagramı](images/talenthub-project-diagram.png)
+![Proje Diyagramı](images/fmss-project-diagram.png)
 
 # Next.js
 
