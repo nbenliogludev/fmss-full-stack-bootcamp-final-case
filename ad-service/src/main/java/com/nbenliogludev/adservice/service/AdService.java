@@ -1,6 +1,7 @@
 package com.nbenliogludev.adservice.service;
 
 import com.nbenliogludev.adservice.dto.request.AdCreateRequest;
+import com.nbenliogludev.adservice.dto.request.AdUpdateRequest;
 import com.nbenliogludev.adservice.dto.response.AdResponse;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public interface AdService {
 
     AdResponse getAdById(Long id);
 
-    AdResponse updateAd(Long id, AdCreateRequest userDetails);
+    AdResponse updateAd(Long id, AdUpdateRequest userDetails);
 
     void deleteAd(Long id);
 }

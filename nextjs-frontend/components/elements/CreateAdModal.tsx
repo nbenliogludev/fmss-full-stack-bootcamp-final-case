@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react';
-
+import { createAd } from 'api/ad';
 import { Fragment, useState } from 'react';
 
 interface CreateAdModalProps {
@@ -11,10 +11,35 @@ const CreateAdModal: React.FC<CreateAdModalProps> = ({ isOpen, onClose }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    setError(null);
 
-  const handleSubmit = () => {
-    
+    try {
+      const newAd = {
+        title,
+        description,
+        amount: parseFloat(price),
+        userId: 1,
+        status: "PASSIVE"
+      };
+
+      const response = await createAd(newAd);
+
+      if (response.success) {
+        // Handle successful creation, e.g., show a success message or update the list
+        onClose(); // Close the modal
+      } else {
+        setError(response.message || 'Failed to create ad');
+      }
+    } catch (err) {
+      setError('An error occurred while creating the ad');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -83,6 +108,11 @@ const CreateAdModal: React.FC<CreateAdModalProps> = ({ isOpen, onClose }) => {
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                     />
                   </div>
+                  {error && (
+                    <div className="mt-4 text-sm text-red-600">
+                      {error}
+                    </div>
+                  )}
                 </div>
 
                 <div className="mt-4 flex justify-end">
@@ -97,8 +127,9 @@ const CreateAdModal: React.FC<CreateAdModalProps> = ({ isOpen, onClose }) => {
                     type="button"
                     className="inline-flex justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                     onClick={handleSubmit}
+                    disabled={isLoading}
                   >
-                    Create Ad
+                    {isLoading ? 'Creating...' : 'Create Ad'}
                   </button>
                 </div>
               </Dialog.Panel>

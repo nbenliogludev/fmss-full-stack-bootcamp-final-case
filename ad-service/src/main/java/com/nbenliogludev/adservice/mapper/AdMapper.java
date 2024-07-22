@@ -15,7 +15,6 @@ public interface AdMapper {
 
     @Mapping(source = "title", target = "title")
     @Mapping(source = "description", target = "description")
-    @Mapping(source = "status", target = "status")
     @Mapping(source = "amount", target = "amount")
     Ad mapAdCreateRequestToAd(AdCreateRequest request);
 

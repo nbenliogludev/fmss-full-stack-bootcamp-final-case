@@ -30,6 +30,6 @@ public class Ad extends Auditable {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private AdStatus status;
+    private AdStatus status = AdStatus.IN_REVIEW; // Default status
 
 }

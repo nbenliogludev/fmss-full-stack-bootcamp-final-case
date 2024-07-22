@@ -1,6 +1,7 @@
 package com.nbenliogludev.adservice.controller;
 
 import com.nbenliogludev.adservice.dto.request.AdCreateRequest;
+import com.nbenliogludev.adservice.dto.request.AdUpdateRequest;
 import com.nbenliogludev.adservice.dto.response.AdResponse;
 import com.nbenliogludev.adservice.dto.response.RestResponse;
 import com.nbenliogludev.adservice.service.AdService;
@@ -70,7 +71,7 @@ public class AdController {
             @ApiResponse(responseCode = "404", description = "Ad not found")
     })
     @PutMapping("/{id}")
-    public ResponseEntity<RestResponse<AdResponse>> updateAd(@PathVariable Long id, @RequestBody @Valid AdCreateRequest request) {
+    public ResponseEntity<RestResponse<AdResponse>> updateAd(@PathVariable Long id, @RequestBody @Valid AdUpdateRequest request) {
 
         AdResponse updatedAd = adService.updateAd(id, request);
         return ResponseEntity.ok(RestResponse.of(updatedAd));

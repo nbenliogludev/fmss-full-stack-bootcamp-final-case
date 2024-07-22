@@ -2,6 +2,7 @@ package com.nbenliogludev.adservice.service.Impl;
 
 import com.nbenliogludev.adservice.client.adPackage.dto.request.AdPackageUpdateRequest;
 import com.nbenliogludev.adservice.client.adPackage.service.AdPackageService;
+import com.nbenliogludev.adservice.dto.request.AdUpdateRequest;
 import com.nbenliogludev.adservice.enums.AdStatus;
 import com.nbenliogludev.adservice.exception.AdNotFoundException;
 import com.nbenliogludev.adservice.exception.InvalidAdPackageException;
@@ -73,7 +74,7 @@ public class AdServiceImpl implements AdService {
     }
 
     @Override
-    public AdResponse updateAd(Long id, AdCreateRequest request) {
+    public AdResponse updateAd(Long id, AdUpdateRequest request) {
         appLogger.logInfo("AdServiceImpl", "Updating ad with id: " + id);
         Ad ad = adRepository.findById(id)
                 .orElseThrow(() -> new AdNotFoundException("Ad not found with id: " + id));

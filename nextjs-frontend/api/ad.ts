@@ -19,6 +19,8 @@ interface ICreateAdRequest {
   title: string;
   description: string;
   amount: number;
+  userId: number;
+  status: string;
 }
 
 interface ICreateAdResponse {
@@ -37,3 +39,4 @@ export const createAd = async (ad: ICreateAdRequest): Promise<ICreateAdResponse>
   const response = await axiosInstance.post('/ads', ad);
   return response.data;
 };
+
