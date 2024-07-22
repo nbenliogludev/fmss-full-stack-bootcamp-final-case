@@ -160,7 +160,7 @@ Bu sayfada, kullanıcılar yeni bir ilan oluşturmak için gerekli formu doldura
 ### Paketler Sayfası
 Bu sayfada, kullanıcılar ilan paketlerini satın alabilirler. Paketler, belirli bir süre ve sayıda ilan yayınlama hakkı sunar.
 
-![Discover all ads](images/my_ads.png)
+![Discover all ads](images/ad_package.png)
 
 <br>
 
