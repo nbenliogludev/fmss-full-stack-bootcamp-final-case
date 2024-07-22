@@ -85,7 +85,6 @@ const MyAdsPage: React.FC = () => {
   return (
     <div className="bg-gray-100 py-10">
       <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Real Estate Listings</h2>
 
         <div className="mt-6 mb-6">
           <label htmlFor="status" className="mr-2 text-gray-700">Filter by status:</label>

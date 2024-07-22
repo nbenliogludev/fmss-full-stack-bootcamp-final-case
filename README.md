@@ -145,7 +145,22 @@ Eureka sunucusu, diğer mikroservislerin kayıt olduğu ve bulunduğu adresleri 
 ### "Discover all" Sayfası
 Bu sayfasda, var olan tüm ilanları keşfedebilecekleri bir liste bulunur.
 
-![Discover all ads](images/frontend-discover.png)
+![Discover all ads](images/discover.png)
+
+### Benim İlanlarım Sayfası
+Bu sayfada, kullanıcının oluşturduğu ilanlar listelenmektedir.
+
+![Discover all ads](images/my_ads.png)
+
+### İlan Oluşturma
+Bu sayfada, kullanıcılar yeni bir ilan oluşturmak için gerekli formu doldurabilirler.
+
+![Discover all ads](images/create_ad.png)
+
+### Paketler Sayfası
+Bu sayfada, kullanıcılar ilan paketlerini satın alabilirler. Paketler, belirli bir süre ve sayıda ilan yayınlama hakkı sunar.
+
+![Discover all ads](images/my_ads.png)
 
 <br>
 
