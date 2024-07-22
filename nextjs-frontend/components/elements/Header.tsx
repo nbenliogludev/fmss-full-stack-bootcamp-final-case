@@ -1,41 +1,33 @@
 'use client'
 
-import { useState } from 'react'
+import { useState } from 'react';
 import {
   Dialog,
   DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Popover,
-  PopoverButton,
   PopoverGroup,
-  PopoverPanel,
-} from '@headlessui/react'
+} from '@headlessui/react';
 import {
-  ArrowPathIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
-import Link from 'next/link'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+} from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid';
 import { signIn, signOut, useSession } from "next-auth/react";
+import CreateAdModal from './CreateAdModal'; // Adjust the import path as necessary
 
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
   { name: 'Contact sales', href: '#', icon: PhoneIcon },
-]
-
+];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { data: session } = useSession();
-  console.log({ session });
+
+  const closeModal = () => setIsModalOpen(false);
+  const openModal = () => setIsModalOpen(true);
 
   return (
     <header className="bg-white">
@@ -57,27 +49,33 @@ export default function Header() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Features
-          </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Marketplace
-          </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Company
-          </a>
+          {session?.user && (
+            <>
+              <button
+                onClick={openModal}
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                Create Ad
+              </button>
+              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                My Ads
+              </a>
+              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                Ad Packages
+              </a>
+            </>
+          )}
         </PopoverGroup>
-      
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {session?.user ? (
-            <button className="text-sm font-semibold leading-6 text-gray-900" onClick={() => signIn()}>
-              <Link href="/login">Log in</Link>
+            <button className="text-sm font-semibold leading-6 text-gray-900" onClick={() => signOut()}>
+              <Link href="/login">Log out</Link>
               <span aria-hidden="true">&rarr;</span>
             </button>
           ) : (
-            <button className="text-sm font-semibold leading-6 text-gray-900" onClick={() => signOut()}>
-              <Link href="/login">Log out</Link>
+            <button className="text-sm font-semibold leading-6 text-gray-900" onClick={() => signIn()}>
+              <Link href="/login">Log in</Link>
               <span aria-hidden="true">&rarr;</span>
             </button>
           )}
@@ -107,53 +105,31 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
+                <button
+                  onClick={openModal}
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Create Ad
+                </button>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Features
+                  My Ads
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Marketplace
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Company
+                  Ad Packages
                 </a>
               </div>
-              {/* <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
-              </div> */}
-
-              <div className="ml-auto flex gap-2">
-                {session?.user ? (
-                  <>
-                    <p className="text-sky-600"> {session.user.name}</p>
-                    <button className="text-red-500" onClick={() => signOut()}>
-                      Sign Out
-                    </button>
-                  </>
-                ) : (
-                  <button className="text-green-600" onClick={() => signIn()}>
-                    Sign In
-                  </button>
-                )}
-              </div>
-
             </div>
           </div>
         </DialogPanel>
       </Dialog>
+
+      <CreateAdModal isOpen={isModalOpen} onClose={closeModal} />
     </header>
-  )
+  );
 }
