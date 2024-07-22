@@ -46,7 +46,11 @@ const MyAdsPage: React.FC = () => {
   });
 
   const mutation = useMutation({
-    mutationFn: (adId: number) => deleteAd(adId)
+    mutationFn: (adId: number) => deleteAd(adId),
+    onSuccess: () => {
+      // Invalidate and refetch ads query to update the list after deletion
+      queryClient.invalidateQueries(['ads']);
+    },
   });
 
   const [selectedStatus, setSelectedStatus] = useState<string>("all");

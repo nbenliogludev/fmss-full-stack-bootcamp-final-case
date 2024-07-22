@@ -45,6 +45,7 @@ Next.js projesi, kullanıcıların ilan oluşturma, düzenleme, silme ve detayla
 - **Next.js**
 - **TypeScript**
 - **React Query**
+- **nextAuth**
 - **Tailwind CSS**
 
 ## Önyüzü çalıştırma adımları

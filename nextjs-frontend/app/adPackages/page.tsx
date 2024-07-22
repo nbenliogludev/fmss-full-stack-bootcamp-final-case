@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { getAdPackage, createAdPackage } from "api/adPackage";
 import React, { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
@@ -22,6 +22,7 @@ const getStatusLabel = (status: string) => {
 };
 
 const AdPackagesPage: React.FC = () => {
+  const queryClient = useQueryClient();
   const { data: session } = useSession();
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["adPackage"],
@@ -29,7 +30,11 @@ const AdPackagesPage: React.FC = () => {
   });
 
   const mutation = useMutation({
-    mutationFn: createAdPackage
+    mutationFn: createAdPackage,
+    onSuccess: () => {
+      // Invalidate and refetch ads query to update the list after deletion
+      queryClient.invalidateQueries(['adPackage']);
+    },
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
