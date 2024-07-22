@@ -135,7 +135,7 @@ Eureka sunucusu, diğer mikroservislerin kayıt olduğu ve bulunduğu adresleri 
 ## Projenin Önyüzü
 
 ### "Discover all" Sayfası
-Bu sayfasda, kullanıcıların var olan tüm ilanları keşfedebilecekleri bir liste bulunur.
+Bu sayfasda, var olan tüm ilanları keşfedebilecekleri bir liste bulunur.
 
 ![Discover all ads](images/frontend-discover.png)
 
