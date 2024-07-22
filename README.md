@@ -124,8 +124,6 @@ Bunlara erişmek için bir API sunar. MongoDB veritabanınızı yönetmek için 
 | `GET`  | `log-aggregation-service/api/v1/info-logs` | Bilgi loglarını getir |
 | `GET`  | `log-aggregation-service/api/v1/error-logs`| Hata loglarını getir  |
 
-
-
 # API Gateway - [API Gateway](api-gateway)
 
 API Gateway, diğer mikroservislerin API'lerini tek bir noktadan erişilebilir hale getirir. Ayrıca servislerin bulunduğu adresleri Eureka üzerinden alır.
@@ -139,7 +137,7 @@ Eureka sunucusu, diğer mikroservislerin kayıt olduğu ve bulunduğu adresleri 
 ### "Discover all" Sayfası
 Bu sayfasda, kullanıcıların var olan tüm ilanları keşfedebilecekleri bir liste bulunur.
 
-![Discover all ads]()
+![Discover all ads](images/frontend-discover.png)
 
 <br>
 
