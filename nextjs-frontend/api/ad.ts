@@ -34,8 +34,16 @@ export const getAds = async (): Promise<IAdsResponse> => {
   return response.data;
 };
 
+export const getMyAds = async (userId: number): Promise<IAdsResponse> => {
+  const response = await axiosInstance.get(`/ads/user/${userId}`);
+  return response.data;
+};
+
 export const createAd = async (ad: ICreateAdRequest): Promise<ICreateAdResponse> => {
   const response = await axiosInstance.post('/ads', ad);
   return response.data;
 };
 
+export const deleteAd = async (adId: number): Promise<void> => {
+  await axiosInstance.delete(`/ads/${adId}`);
+};

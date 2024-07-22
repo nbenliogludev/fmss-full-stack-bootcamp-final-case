@@ -4,6 +4,7 @@ import com.nbenliogludev.adpackageservice.dto.request.AdPackageCreateRequest;
 import com.nbenliogludev.adpackageservice.dto.request.AdPackageUpdateRequest;
 import com.nbenliogludev.adpackageservice.dto.response.AdPackageResponse;
 import com.nbenliogludev.adpackageservice.dto.response.RestResponse;
+import com.nbenliogludev.adpackageservice.exception.AdPackageNotFoundException;
 import com.nbenliogludev.adpackageservice.service.AdPackageService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -63,15 +64,19 @@ public class AdPackageController {
         return ResponseEntity.ok(RestResponse.of(user));
     }
 
-    @Operation(summary = "Get ad package by user Id", description = "Retrieves a ad package by user Id")
+    @Operation(summary = "Get Ad Package by User ID", description = "Retrieves an ad package by user ID")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Ad package retrieved successfully", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdPackageResponse.class))),
+            @ApiResponse(responseCode = "200", description = "Ad package retrieved successfully"),
             @ApiResponse(responseCode = "404", description = "Ad package not found")
     })
     @GetMapping("/user/{userId}")
     public ResponseEntity<RestResponse<AdPackageResponse>> getAdPackageByUserId(@PathVariable Long userId) {
-        AdPackageResponse user = adPackageService.getAdPackageByUserId(userId);
-        return ResponseEntity.ok(RestResponse.of(user));
+        try {
+            AdPackageResponse adPackage = adPackageService.getAdPackageByUserId(userId);
+            return ResponseEntity.ok(RestResponse.of(adPackage));
+        } catch (AdPackageNotFoundException ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(RestResponse.error(null));
+        }
     }
 
     @Operation(summary = "Update Ad Package", description = "Updates an existing ad package")

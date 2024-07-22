@@ -29,11 +29,15 @@ export default function Header() {
   const closeModal = () => setIsModalOpen(false);
   const openModal = () => setIsModalOpen(true);
 
+  const handleSignOut = () => {
+    signOut({ callbackUrl: '/discover' });
+  };
+
   return (
     <header className="bg-white">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/discover" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <img alt="" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" className="h-8 w-auto" />
           </a>
@@ -57,20 +61,23 @@ export default function Header() {
               >
                 Create Ad
               </button>
-              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+              <Link href="/discover" className="text-sm font-semibold leading-6 text-gray-900">
+                Discover
+              </Link>
+              <Link href="/myAds" className="text-sm font-semibold leading-6 text-gray-900">
                 My Ads
-              </a>
-              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+              </Link>
+              <Link href="/adPackages" className="text-sm font-semibold leading-6 text-gray-900">
                 Ad Packages
-              </a>
+              </Link>
             </>
           )}
         </PopoverGroup>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {session?.user ? (
-            <button className="text-sm font-semibold leading-6 text-gray-900" onClick={() => signOut()}>
-              <Link href="/login">Log out</Link>
+            <button className="text-sm font-semibold leading-6 text-gray-900" onClick={handleSignOut}>
+              <span>Log out</span>
               <span aria-hidden="true">&rarr;</span>
             </button>
           ) : (
@@ -111,18 +118,24 @@ export default function Header() {
                 >
                   Create Ad
                 </button>
-                <a
-                  href="#"
+                <Link
+                  href="/discover"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Discover
+                </Link>
+                <Link
+                  href="/myAds"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   My Ads
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/adPackages"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Ad Packages
-                </a>
+                </Link>
               </div>
             </div>
           </div>

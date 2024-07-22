@@ -37,8 +37,8 @@ public class AdController {
     @GetMapping
     public ResponseEntity<RestResponse<List<AdResponse>>> getAllAds() {
         System.out.println("Get All Ads");
-        List<AdResponse> users = adService.getAllAds();
-        return ResponseEntity.ok(RestResponse.of(users));
+        List<AdResponse> ads = adService.getAllAds();
+        return ResponseEntity.ok(RestResponse.of(ads));
     }
 
     @Operation(summary = "Get ad by Id", description = "Retrieves a ad by its ID")
@@ -47,9 +47,20 @@ public class AdController {
             @ApiResponse(responseCode = "404", description = "Ad not found")
     })
     @GetMapping("/{id}")
-    public ResponseEntity<RestResponse<AdResponse>> getUserById(@PathVariable Long id) {
+    public ResponseEntity<RestResponse<AdResponse>> getAdById(@PathVariable Long id) {
         AdResponse user = adService.getAdById(id);
         return ResponseEntity.ok(RestResponse.of(user));
+    }
+
+    @Operation(summary = "Get ads  by user Id", description = "Retrieves a ads by user Id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Ad retrieved successfully", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdResponse.class))),
+            @ApiResponse(responseCode = "404", description = "Ad not found")
+    })
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<RestResponse<List<AdResponse>>> getAdByUserId(@PathVariable Long userId) {
+        List<AdResponse> ads = adService.getAdByUserId(userId);
+        return ResponseEntity.ok(RestResponse.of(ads));
     }
 
     @Operation(summary = "Create Ad", description = "Creates a new ad")

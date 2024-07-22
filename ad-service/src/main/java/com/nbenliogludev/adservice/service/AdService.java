@@ -12,6 +12,7 @@ public interface AdService {
     List<AdResponse> getAllAds();
 
     AdResponse getAdById(Long id);
+    List<AdResponse> getAdByUserId(Long id);
 
     AdResponse updateAd(Long id, AdUpdateRequest userDetails);
 

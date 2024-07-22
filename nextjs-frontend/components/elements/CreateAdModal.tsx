@@ -1,6 +1,8 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { createAd } from 'api/ad';
+import { useSession } from 'next-auth/react';
 import { Fragment, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface CreateAdModalProps {
   isOpen: boolean;
@@ -13,6 +15,8 @@ const CreateAdModal: React.FC<CreateAdModalProps> = ({ isOpen, onClose }) => {
   const [price, setPrice] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const { data: session } = useSession();
+  const router = useRouter();
 
   const handleSubmit = async () => {
     setIsLoading(true);
@@ -23,14 +27,15 @@ const CreateAdModal: React.FC<CreateAdModalProps> = ({ isOpen, onClose }) => {
         title,
         description,
         amount: parseFloat(price),
-        userId: 1,
+        userId: session?.user.id!,
         status: "PASSIVE"
       };
 
       const response = await createAd(newAd);
 
       if (response.success) {
-        // Handle successful creation, e.g., show a success message or update the list
+        // Redirect to /myAds after successful creation
+        router.push('/myAds');
         onClose(); // Close the modal
       } else {
         setError(response.message || 'Failed to create ad');

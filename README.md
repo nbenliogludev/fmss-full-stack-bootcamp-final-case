@@ -15,7 +15,6 @@ Email: [nikbenlioglu@gmail.com](mailto:nikbenlioglu@gmail.com)
 - Loglar için MongoDB kullanılıyor.
 - Eureka service discovery yapısı hazırlandı.
 - Next.js ile oluşturulmuş basit bir önyüze sahip.
-- Swagger API dokümantasyonu eklendi.
 - Postman üzerinden denenebilir.
 
 ## Postman ile deneyin
@@ -94,13 +93,14 @@ AuthenticationService, JWT kullanarak kullanıcı kimlik doğrulama işlemlerini
 
 ### API Adresleri
 
-| Method   | Adres              | Açıklama                        |
-|----------|--------------------|---------------------------------|
-| `GET`    | `/api/v1/ads`      | Tüm ilanları getir              |
-| `GET`    | `/api/v1/ads/{id}` | İlanı id'si ile getir           |
-| `POST`   | `/api/v1/ads`      | 	Yeni bir ilan oluştur          |
-| `PUT`    | `/api/v1/ads/{id}` | Mevcut bir ilanı güncelle       |
-| `DELETE` | `/api/v1/ads/{id}` | Mevcut bir ilanı sil            |
+| Method   | Adres                   | Açıklama                   |
+|----------|-------------------------|----------------------------|
+| `GET`    | `/api/v1/ads`           | Tüm ilanları getir         |
+| `GET`    | `/api/v1/ads/{id}`      | İlanı id'si ile getir      |
+| `GET`    | `/api/v1/ads/user/{id}` | İlanı user id'si ile getir |
+| `POST`   | `/api/v1/ads`           | Yeni bir ilan oluştur      |
+| `PUT`    | `/api/v1/ads/{id}`      | Mevcut bir ilanı güncelle  |
+| `DELETE` | `/api/v1/ads/{id}`      | Mevcut bir ilanı sil       |
 
 
 
@@ -110,13 +110,14 @@ Paket Servisi, kullanıcıların ilan yayınlama haklarını yönetir. Kullanıc
 
 ### API Adresleri
 
-| Method   | Adres                     | Açıklama                   |
-|----------|---------------------------|----------------------------|
-| `GET`    | `/api/v1/adPackages`      | Tüm paketleri getir        |
-| `GET`    | `/api/v1/adPackages/{id}` | Paketi id'si ile getir     |
-| `POST`   | `/api/v1/adPackages`      | Yeni bir paket oluştur     |
-| `PUT`    | `/api/v1/adPackages/{id}` | Mevcut bir paketi güncelle |
-| `DELETE` | `/api/v1/adPackages/{id}` | Mevcut bir paketi sil      |
+| Method   | Adres                          | Açıklama                    |
+|----------|--------------------------------|-----------------------------|
+| `GET`    | `/api/v1/adPackages`           | Tüm paketleri getir         |
+| `GET`    | `/api/v1/adPackages/{id}`      | Paketi id'si ile getir      |
+| `GET`    | `/api/v1/adPackages/user/{id}` | Paketi user id'si ile getir |
+| `POST`   | `/api/v1/adPackages`           | Yeni bir paket oluştur      |
+| `PUT`    | `/api/v1/adPackages/{id}`      | Mevcut bir paketi güncelle  |
+| `DELETE` | `/api/v1/adPackages/{id}`      | Mevcut bir paketi sil       |
 
 
 # Log Toplama Servisi - [Log Aggregation Service](log-aggregation-service)

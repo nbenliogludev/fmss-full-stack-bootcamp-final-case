@@ -53,7 +53,7 @@ public class AdServiceImpl implements AdService {
     @Override
     public List<AdResponse> getAllAds() {
         appLogger.logInfo("AdServiceImpl", "Fetching all ads");
-        List<Ad> ads = adRepository.findAllByStatusNot(AdStatus.IN_REVIEW);
+        List<Ad> ads = adRepository.findAll();
         appLogger.logInfo("AdServiceImpl", "Fetched " + ads.size() + " ads");
         return ads.stream()
                 .map(adMapper::mapToAdResponse)
@@ -71,6 +71,15 @@ public class AdServiceImpl implements AdService {
             appLogger.logInfo("AdServiceImpl", "No ad found with id: " + id);
             throw new AdNotFoundException("Ad not found with id: " + id);
         }
+    }
+
+    @Override
+    public List<AdResponse> getAdByUserId(Long userId) {
+        appLogger.logInfo("AdService", "Fetching ad package by user ID: " + userId);
+        List<Ad> ads = adRepository.findByUserId(userId);
+        return ads.stream()
+                .map(adMapper::mapToAdResponse)
+                .toList();
     }
 
     @Override

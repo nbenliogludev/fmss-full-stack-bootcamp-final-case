@@ -2,6 +2,7 @@ package com.nbenliogludev.adpackageservice.service.Impl;
 
 import com.nbenliogludev.adpackageservice.dto.request.AdPackageUpdateRequest;
 import com.nbenliogludev.adpackageservice.enums.AdPackageStatus;
+import com.nbenliogludev.adpackageservice.exception.AdPackageNotFoundException;
 import com.nbenliogludev.adpackageservice.mapper.AdPackageMapper;
 import com.nbenliogludev.adpackageservice.service.AdPackageService;
 import com.nbenliogludev.adpackageservice.dto.request.AdPackageCreateRequest;
@@ -68,6 +69,11 @@ public class AdPackageServiceImpl implements AdPackageService {
     public AdPackageResponse getAdPackageByUserId(Long userId) {
         appLogger.logInfo("AdPackageService", "Fetching ad package by user ID: " + userId);
         Optional<AdPackage> adPackageOptional = adPackageRepository.findByUserId(userId);
+
+        if (adPackageOptional.isEmpty()) {
+            throw new AdPackageNotFoundException("No ad package found for user ID: " + userId);
+        }
+
         return adPackageMapper.mapToAdPackageResponse(adPackageOptional.get());
     }
 
