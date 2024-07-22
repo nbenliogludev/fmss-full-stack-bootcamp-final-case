@@ -3,7 +3,7 @@
 
 Bu proje, FMSS Bilişim Teknoloji Fullstack Web Bootcamp'inin final projesidir. Mikroservis mimarisi uygulanarak geliştirilmiştir.
 
-Website: [nbenlioglu.dev](https://www.nbenlioglu.dev/)
+Website: [nbenlioglu.dev](https://www.nbenlioglu.dev/)<br>
 LinkedIn: [Nikolay Benlioglu](https://www.linkedin.com/in/nikolay-benlioglu/)<br>
 GitHub: [nbenliogludev](https://github.com/nbenliogludev)<br>
 Email: [nikbenlioglu@gmail.com](mailto:nikbenlioglu@gmail.com)
@@ -143,7 +143,7 @@ Bu sayfasda, var olan tüm ilanları keşfedebilecekleri bir liste bulunur.
 
 ## FMSS Bilişim Teknoloji Fullstack Web Bootcamp
 
-Website: [nbenlioglu.dev](https://www.nbenlioglu.dev/)
+Website: [nbenlioglu.dev](https://www.nbenlioglu.dev/)<br>
 LinkedIn: [Nikolay Benlioglu](https://www.linkedin.com/in/nikolay-benlioglu/)<br>
 GitHub: [nbenliogludev](https://github.com/nbenliogludev)<br>
 Email: [nikbenlioglu@gmail.com](mailto:nikbenlioglu@gmail.com)
