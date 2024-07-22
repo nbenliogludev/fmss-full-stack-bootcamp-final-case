@@ -19,7 +19,7 @@ Email: [nikbenlioglu@gmail.com](mailto:nikbenlioglu@gmail.com)
 - Postman üzerinden denenebilir.
 
 ## Postman ile deneyin
-API adreslerini Postman ile deneyebilirsiniz: 
+API adreslerini Postman ile deneyebilirsiniz: [**Postman API** 🚀](https://documenter.getpostman.com/view/5602393/2sA3kVj1Xz)
 
 ## Mikroservisler
 
