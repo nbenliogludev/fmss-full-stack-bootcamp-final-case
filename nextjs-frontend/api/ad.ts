@@ -20,7 +20,6 @@ interface ICreateAdRequest {
   description: string;
   amount: number;
   userId: number;
-  status: string;
 }
 
 interface ICreateAdResponse {
