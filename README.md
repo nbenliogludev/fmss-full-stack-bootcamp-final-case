@@ -41,6 +41,13 @@ Aşağıda projeye ait mikroservislerin listesi bulunmaktadır.<br>
 
 Next.js projesi, kullanıcıların ilan oluşturma, düzenleme, silme ve detaylarına ulaşma işlemlerini yapabilmesini sağlar.
 
+## Kullandığım Teknolojiler
+
+- **Next.js**
+- **TypeScript**
+- **React Query**
+- **Tailwind CSS**
+
 ## Önyüzü çalıştırma adımları
 
 1. Terminalinizi açın ve projenin ana dizinine gidin.
